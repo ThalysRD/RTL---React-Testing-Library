@@ -3,11 +3,11 @@ import React from 'react';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
-describe('Testa o componente Not Found', () => {
+describe('Testa o componente Not Found.js', () => {
   it('Testa se a página possui o título "Page requested not found"', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/random-page');
-    const h2Text = 'Page requested not found';
+    const h2Text = /Page requested not found/i;
     const titleEl = screen.getByRole('heading', { name: h2Text, level: 2 });
     expect(titleEl).toBeInTheDocument();
   });
